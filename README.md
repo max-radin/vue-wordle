@@ -1,9 +1,15 @@
-# Vue Wordle
+# Gandarfle
 
-[Live demo](https://vue-wordle.netlify.app/)
+A Lord of the Rings wordle.
 
-A Vue implementation of the [Wordle game](https://www.powerlanguage.co.uk/wordle/). This is just for fun and doesn't aim to 100% replicate the original.
+[Live demo](https://max-radin.github.io/vue-wordle/)
 
-You can make your own Wordle and send it to friends by base64-encoding a word and include it as the URL query, e.g. https://vue-wordle.netlify.app/?YmxpbXA= (this will also allow words that are not in the dictionary.)
+This repository is open sourced for learning purposes only - the original creator(s) of Wordle and the Lord of the Rings own all applicable rights to the game itself and names.
 
-This repository is open sourced for learning purposes only - the original creator(s) of Wordle own all applicable rights to the game itself.
+# Deploying to GitHub pages
+
+1. Run `npm run build`.
+2. Copy `dist` to `docs`.
+3. Move contents of `docs/assets` to the `docs` directory.
+4. Update `docs/index.html` to remove `"assets"` from link paths.
+5. Commit `docs` to `gh-pages` and push.
