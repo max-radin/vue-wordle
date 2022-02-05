@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { onUnmounted } from "vue";
-import { getWordOfTheDay, allWords } from "./words";
+import { getWordOfTheDay, getDay, allWords } from "./words";
 import Keyboard from "./Keyboard.vue";
 import { LetterState } from "./types";
 
 // Get word of the day
-const answer = getWordOfTheDay();
+const day = getDay();
+const answer = getWordOfTheDay(day);
+let hasGridResultCopied = $ref(false);
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
@@ -169,13 +171,28 @@ function genResultGrid() {
     })
     .join("\n");
 }
+
+function copyResultGrid() {
+  var sampleTextarea = document.createElement("textarea");
+  document.body.appendChild(sampleTextarea);
+  let header = "Gandarfle #" + (day + 1).toString() + "\n";
+  sampleTextarea.value = header + genResultGrid();
+  sampleTextarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(sampleTextarea);
+  hasGridResultCopied = true;
+}
 </script>
 
 <template>
   <Transition>
     <div class="message" v-if="message">
-      {{ message }}
-      <pre v-if="grid">{{ grid }}</pre>
+      <div id="resultGrid">
+        Gandarfle #{{ day + 1 }}
+        <pre v-if="grid">{{ grid }}</pre>
+      </div>
+      <div class="button" v-on:click="copyResultGrid" v-if:="!hasGridResultCopied">Copy</div>
+      <div v-on:click="copyResultGrid" v-if:="hasGridResultCopied">Copied!</div>
     </div>
   </Transition>
   <header>
@@ -218,15 +235,9 @@ function genResultGrid() {
   <Keyboard @key="onKey" :letter-states="letterStates" />
   <div id="footer">
     Inspired by
-    <a
-      href="https://www.powerlanguage.co.uk/wordle/"
-      target="_blank"
-      >Wordle</a
-    >
+    <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a>
     and
-    <a
-      href="https://digitaltolkien.github.io/vue-wordle/"
-      target="_blank"
+    <a href="https://digitaltolkien.github.io/vue-wordle/" target="_blank"
       >Lordle of the Rings</a
     >.
   </div>
@@ -256,6 +267,14 @@ function genResultGrid() {
   transform: translateX(-50%);
   transition: opacity 0.3s ease-out;
   font-weight: 600;
+}
+.button {
+  user-select: none;
+  cursor: pointer;
+  padding: 4px 0px;
+  border-radius: 4px; 
+  background-color: #d3d6da;
+  color: #1a1a1b;
 }
 .message.v-leave-to {
   opacity: 0;

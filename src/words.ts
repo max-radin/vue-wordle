@@ -1,6 +1,13 @@
 const defaultMessage = " Using word of the day instead.";
 
-export function getWordOfTheDay() {
+export function getDay() {
+  const now = new Date();
+  const start = new Date(2022, 1, 5);
+  const diff = Number(now) - Number(start);
+  return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
+export function getWordOfTheDay(day: number) {
   if (location.search) {
     try {
       const query = atob(location.search.slice(1));
@@ -13,11 +20,6 @@ export function getWordOfTheDay() {
       alert(`Malformed encoded word query. ${defaultMessage}`);
     }
   }
-
-  const now = new Date();
-  const start = new Date(2022, 0, 0);
-  const diff = Number(now) - Number(start);
-  let day = Math.floor(diff / (1000 * 60 * 60 * 24));
   while (day > answers.length) {
     day -= answers.length;
   }
@@ -33,7 +35,6 @@ const answers = [
   "moria",
   "eomer",
   "eowyn",
-  "uruks",
   "tales",
   "hurin",
   "valar",
@@ -43,7 +44,6 @@ const answers = [
   "eyrie",
   "maiar",
   "bilbo",
-  "anwar",
   "brown",
   "sting",
   "frodo",
@@ -93,6 +93,7 @@ const allowedGuesses = [
   "thain",
   "meara",
   "bungo",
+  "uruks",
   "boron",
   "drogo",
   "ulbar",
@@ -115,6 +116,7 @@ const allowedGuesses = [
   "freda",
   "beril",
   "celon",
+  "anwar",
   "aldor",
   "brego",
   "folca",
