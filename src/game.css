@@ -16,6 +16,12 @@ header {
   position: relative;
 }
 
+#footer {
+  margin-top: 30px;
+  position: relative;
+}
+
+
 #source-link {
   position: absolute;
   right: 1em;
