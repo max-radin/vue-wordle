@@ -84,13 +84,13 @@ const answers = [
   "eagle",
   "biter",
   "beorn",
-  "thain",
   "shade",
   "black"
 ];
 
 const allowedGuesses = [
   "minas",
+  "thain",
   "bofur",
   "kasem",
   "barad",
