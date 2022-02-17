@@ -84,7 +84,6 @@ const answers = [
   "eagle",
   "biter",
   "beorn",
-  "shade",
   "black"
 ];
 
@@ -139,6 +138,8 @@ const allowedGuesses = [
   "manwe",
   "thror",
   "basso",
+  "shade",
+  "ghost"
 ];
 
 export const allWords = [...answers, ...allowedGuesses];
