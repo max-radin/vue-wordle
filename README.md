@@ -10,6 +10,4 @@ This repository is open sourced for learning purposes only - the original creato
 
 1. Run `npm run build`.
 2. Copy `dist` to `docs`.
-3. Move contents of `docs/assets` to the `docs` directory.
-4. Update `docs/index.html` to remove `"assets"` from link paths.
-5. Commit `docs` to `gh-pages` and push.
+3. Commit `docs` to `gh-pages` and push.
