@@ -139,7 +139,8 @@ const allowedGuesses = [
   "thror",
   "basso",
   "shade",
-  "ghost"
+  "ghost",
+  "ithil"
 ];
 
 export const allWords = [...answers, ...allowedGuesses];
