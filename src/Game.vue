@@ -186,13 +186,22 @@ function copyResultGrid() {
 
 <template>
   <Transition>
-    <div class="message" v-if="message">
+    <div class="message" v-if="grid">
+      <div  v-if="message">
+        {{ message }}!
+        <br/><br/>
+      </div>
       <div id="resultGrid">
         Gandarfle #{{ day + 1 }}
         <pre v-if="grid">{{ grid }}</pre>
       </div>
       <div class="button" v-on:click="copyResultGrid" v-if:="!hasGridResultCopied">Copy</div>
       <div v-on:click="copyResultGrid" v-if:="hasGridResultCopied">Copied!</div>
+    </div>
+    <div class="message" v-else-if="message">
+      <div>
+        {{ message }}
+      </div>
     </div>
   </Transition>
   <header>

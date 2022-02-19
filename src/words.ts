@@ -49,7 +49,6 @@ const answers = [
   "frodo",
   "elves",
   "nenya",
-  "barad",
   "spell",
   "harad",
   "wargs",
@@ -77,20 +76,24 @@ const answers = [
   "abyss",
   "tower",
   "rings",
-  "minas",
   "queen",
   "vilya",
   "witch",
   "merry",
   "umbar",
   "eagle",
+  "biter",
+  "beorn",
+  "black"
 ];
 
 const allowedGuesses = [
-  "kasem",
-  "endor",
-  "beorn",
+  "minas",
   "thain",
+  "bofur",
+  "kasem",
+  "barad",
+  "endor",
   "meara",
   "bungo",
   "uruks",
@@ -121,7 +124,6 @@ const allowedGuesses = [
   "brego",
   "folca",
   "melko",
-  "shade",
   "argon",
   "finwe",
   "elros",
@@ -136,6 +138,10 @@ const allowedGuesses = [
   "manwe",
   "thror",
   "basso",
+  "shade",
+  "ghost",
+  "ithil",
+  "mines"
 ];
 
 export const allWords = [...answers, ...allowedGuesses];
